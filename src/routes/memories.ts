@@ -52,7 +52,7 @@ export async function memoriesRoutes(app: FastifyInstance) {
     const bodySchema = z.object({
       content: z.string(),
       coverUrl: z.string(),
-      isPublic: z.boolean().default(false),
+      isPublic: z.coerce.boolean().default(false),
       userId: z.string(),
     })
 
@@ -82,7 +82,7 @@ export async function memoriesRoutes(app: FastifyInstance) {
     const bodySchema = z.object({
       content: z.string(),
       coverUrl: z.string(),
-      isPublic: z.boolean().default(false),
+      isPublic: z.coerce.boolean().default(false),
     })
 
     const { content, coverUrl, isPublic } = bodySchema.parse(request.body)
